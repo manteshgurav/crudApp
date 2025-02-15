@@ -11,7 +11,8 @@ app.use(express.json());
 // Import routes
 const quotationRoutes = require("./routes/quotations");
 const taxInvoiceRoutes = require("./routes/taxInvoices");
-const siteEntryRoutes = require("./routes/siteEntries");
+const materialInRoutes = require("./routes/materialInRoutes"); // Added Material In Routes
+const materialOutRoutes = require("./routes/materialOutRoutes"); // Added Material Out Routes
 
 // Load environment variables
 const PORT = process.env.PORT || 5000;
@@ -33,7 +34,8 @@ mongoose
 // Use routes
 app.use("/quotations", quotationRoutes);
 app.use("/taxInvoices", taxInvoiceRoutes);
-app.use("/siteEntries", siteEntryRoutes);
+app.use("/materialin", materialInRoutes); // Updated Route
+app.use("/materialout", materialOutRoutes); // Updated Route
 
 // Start server
 app.listen(PORT, () => {
